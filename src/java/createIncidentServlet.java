@@ -35,7 +35,9 @@ public class createIncidentServlet extends HttpServlet {
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 
-            String sql = "INSERT INTO Incidents (user_id, title, description, category, severity) VALUES (?, ?, ?, ?, ?)";
+            // Insert incident with default admin_id = 2 and status = 'Unsolved'
+            String sql = "INSERT INTO Incidents (user_id, title, description, category, severity, admin_id, status) " +
+                         "VALUES (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement stmt = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
 
             stmt.setInt(1, userId);
@@ -43,6 +45,8 @@ public class createIncidentServlet extends HttpServlet {
             stmt.setString(3, description);
             stmt.setString(4, category);
             stmt.setString(5, severity);
+            stmt.setInt(6, 2); // Assign admin_id = 2
+            stmt.setString(7, "Unsolved"); // Default status = 'Unsolved'
 
             int rowsInserted = stmt.executeUpdate();
             ResultSet generatedKeys = stmt.getGeneratedKeys();
@@ -71,4 +75,3 @@ public class createIncidentServlet extends HttpServlet {
         }
     }
 }
-

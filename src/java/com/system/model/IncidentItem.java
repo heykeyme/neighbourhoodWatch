@@ -3,7 +3,7 @@ package com.system.model;
 import java.time.LocalDateTime;
 
 public class IncidentItem {
-    private String incidentId;
+    private int incidentId;
     private String userId;
     private String title;
     private LocalDateTime incidentTimeStamp;
@@ -11,7 +11,7 @@ public class IncidentItem {
     private String incidentCategory;
     private String severity;
     
-    public String getIncidentId(){
+    public int getIncidentId(){
         return incidentId;
     }
     
@@ -39,7 +39,7 @@ public class IncidentItem {
         return severity;
     }
     
-    public IncidentItem(String incidentId, String userId, String title, LocalDateTime incidentTimeStamp, String description, String incidentCategory, String severity){
+    public IncidentItem(int incidentId, String userId, String title, LocalDateTime incidentTimeStamp, String description, String incidentCategory, String severity){
         this.incidentId = incidentId;
         this.userId = userId;
         this.title = title;
@@ -47,5 +47,11 @@ public class IncidentItem {
         this.description = description;
         this.incidentCategory = incidentCategory;
         this.severity = severity;
+    }
+    
+    public IncidentItem(int incidentId, String title, String description){
+        this.incidentId = incidentId;
+        this.title = title;
+        this.description = description;
     }
 }

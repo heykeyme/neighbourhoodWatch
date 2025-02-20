@@ -124,6 +124,23 @@
             font-size: 14px;
             color: #ffd700; 
         }
+        
+        .card-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #ffd700; /* Gold Button */
+            color: #2b5876; /* Dark blue text */
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .card-link:hover {
+            background-color: #f5f5f5;
+        }
+
     </style>
 </head>
 <body>
@@ -139,37 +156,31 @@
     </header>
 
     <!-- Navigation Bar -->
-    <nav>
+<!--    <nav>
         <a href="adminAnnouncement.jsp">Make Announcement</a>
         <a href="updateIncident.jsp">Update</a>
         <a href="deleteIncident.jsp">Delete Incident</a>
-    </nav>
+    </nav>-->
 
     <!-- Main Content Section -->
     <main>
         <!-- Card: User Summary --> 
         <div class="card" id="users">
-            <h2>120</h2>
-            <p>Total Registered Users</p>
+            <h2>Make Announcement</h2>
+            <a href="adminAnnouncement.jsp" class="card-link">Go to Announcement</a>
+        </div>
+        
+        <div class="card" id="users">
+            <h2>Update Incident</h2>
+            <a href="adminIncidentList.jsp" class="card-link">Update The Incidents</a>
+        </div>
+        
+        <div class="card" id="users">
+            <h2>Delete solve incidents</h2>
+            <a href="adminDeleteIncidentServlet" class="card-link">Delete Solved Incidents</a>
         </div>
 
-        <!-- Card: Reports Summary -->
-        <div class="card" id="reports">
-            <h2>45</h2>
-            <p>Pending Reports</p>
-        </div>
 
-        <!-- Card: Settings -->
-        <div class="card" id="settings">
-            <h2>Settings</h2>
-            <p>Update system configurations</p>
-        </div>
-
-        <!-- Card: Analytics -->
-        <div class="card" id="analytics">
-            <h2>Analytics</h2>
-            <p>View detailed system analytics</p>
-        </div>
     </main>
 
     <!-- Footer Section -->
