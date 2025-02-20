@@ -8,26 +8,35 @@
 //        response.sendRedirect("login.html");
 //        return;
 //    }
+    if (session.getId() == null) {
+        System.out.println("Redirect to login page...");
+        response.sendRedirect("login.html");
+        return;
+    }
 
     // Convert session attribute safely
-//    int userId = Integer.parseInt(userSession.getAttribute("userId").toString());
-    int userId = 1;
+    int userId = Integer.parseInt(session.getAttribute("userID").toString());
+    System.out.println("userId: " + userId);
 
     // Database connection
     Connection conn = null;
     PreparedStatement stmt = null;
     ResultSet rs = null;
+    String DB_URL = "jdbc:derby://localhost:1527/userdb";
+    String DB_USER = "app";
+    String DB_PASSWORD = "app";
 
     try {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:1527/userdb", "app", "app");
+        Class.forName("org.apache.derby.jdbc.ClientDriver");
+        conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+//        conn = DriverManager.getConnection("jdbc:mysql://localhost:1527/userdb", "app", "app");
 
         // Fetch only incidents created by the logged-in user
         String query = "SELECT incident_id, title, description FROM incidents WHERE user_id = ?";
         stmt = conn.prepareStatement(query);
         stmt.setInt(1, userId);
         rs = stmt.executeQuery();
-    }
+        
 %>
 
 <!DOCTYPE html>
@@ -139,7 +148,7 @@
                         <td><%= title %></td>
                         <td><%= description %></td>
                         <td>
-                            <a href="updateIncident.jsp?id=<%= incidentId %>&title=<%= title %>&description=<%= description %>" class="edit-btn">Edit</a>
+                            <a href="userEditIncident.jsp?id=<%= incidentId %>&title=<%= title %>&description=<%= description %>" class="edit-btn">Edit</a>
                         </td>
                     </tr>
 <%

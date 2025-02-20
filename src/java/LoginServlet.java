@@ -27,7 +27,7 @@ public class LoginServlet extends HttpServlet {
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 
-            // Check user login
+            // Check user login  
             User user = getUser(conn, username, password);
             if (user != null) {
                 HttpSession session = request.getSession();

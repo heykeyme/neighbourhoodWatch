@@ -1,53 +1,51 @@
-package com.system.model;
-
-import java.time.LocalDate;
+import java.sql.Timestamp;
 
 public class AnnouncementItem {
-    private String announcementId;
-    private String adminId;
+    private int id;
+    private int adminId;
     private String title;
-    private String status;
     private String content;
-    private LocalDate announcementDate;
-    private String urgencyLevel;   
-    
-    //getters
-    public String getAnnouncementId(){
-        return announcementId;
-    }
-    
-    public String getAdminId(){
-        return adminId;
-    }
-    
-    public String getTitle(){
-        return title;
-    }
-    
-    public String getStatus(){
-        return status;
-    }
-    
-    public String getContent(){
-        return content;
-    }
-    
-    public LocalDate getAnnouncementDate(){
-        return announcementDate;
-    }
-    
-    public String getUrgencyLevel(){
-        return urgencyLevel;
-    }
-    
-    //constructor
-    public AnnouncementItem(String announcementId, String adminId, String title, String status, String content, LocalDate announcementDate, String urgencyLevel){
-        this.announcementId = announcementId;
+    private Timestamp date;
+    private String urgency;
+
+    // Constructor
+    public AnnouncementItem(int id, int adminId, String title, String content, Timestamp date, String urgency) {
+        this.id = id;
         this.adminId = adminId;
         this.title = title;
-        this.status = status;
         this.content = content;
-        this.announcementDate = announcementDate;
-        this.urgencyLevel = urgencyLevel;
+        this.date = date;
+        this.urgency = urgency;
     }
+    
+    public AnnouncementItem(String title, String content){
+        this.title = title;
+        this.content = content;
+    }
+
+    // Getters
+    public int getId() { 
+        return id; 
+    }
+    
+    public int getAdminId() {
+        return adminId; 
+    }
+    
+    public String getTitle() { 
+        return title; 
+    }
+    
+    public String getContent() { 
+        return content; 
+    }
+    
+    public Timestamp getDate() { 
+        return date; 
+    }
+    
+    public String getUrgency() { 
+        return urgency; 
+    }
+    
 }

@@ -16,6 +16,18 @@
         <servlet-name>createIncidentServlet</servlet-name>
         <servlet-class>createIncidentServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>userEditServlet</servlet-name>
+        <servlet-class>userEditServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>adminCreateAnnouncement</servlet-name>
+        <servlet-class>adminCreateAnnouncement</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>announcementServlet</servlet-name>
+        <servlet-class>announcementServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -31,6 +43,18 @@
     <servlet-mapping>
         <servlet-name>createIncidentServlet</servlet-name>
         <url-pattern>/createIncidentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>userEditServlet</servlet-name>
+        <url-pattern>/userEditServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adminCreateAnnouncement</servlet-name>
+        <url-pattern>/adminCreateAnnouncement</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>announcementServlet</servlet-name>
+        <url-pattern>/announcementServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

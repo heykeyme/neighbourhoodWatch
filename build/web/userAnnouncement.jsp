@@ -1,8 +1,5 @@
-<%-- 
-    Document   : userAnnouncement
-    Created on : Feb 18, 2025, 12:05:22 AM
-    Author     : Heykeyme
---%>
+<%@ page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -74,24 +71,16 @@
     </header>
 
     <div class="container">
-        <!-- Event Announcement Example -->
-        <div class="announcement">
-            <h2>Hari Raya Celebration Event</h2>
-            <p>Join us for a grand Hari Raya celebration! Date: April 22nd, 2025 at the Community Hall. Don't miss the exciting performances, food stalls, and family-friendly activities!</p>
-        </div>
+        <c:if test="${empty announcements}">
+            <p style="color: red;">No announcements available.</p>
+        </c:if>
 
-        <!-- Road Issue Announcement Example -->
-        <div class="announcement">
-            <h2>Road Maintenance Notice</h2>
-            <p>Please be advised that the main road near the town center has a large pothole. The road will be closed for repairs from February 18th to 20th. Please plan your route accordingly.</p>
-        </div>
-
-        <!-- General Announcement Example -->
-        <div class="announcement">
-            <h2>Water Supply Interruption</h2>
-            <p>Due to scheduled maintenance, there will be an interruption in water supply on February 19th, 2025, from 9 AM to 12 PM. Please store enough water in advance for your needs.</p>
-        </div>
+        <c:forEach var="announcement" items="${announcements}">
+            <div class="announcement">
+                <h2>${announcement.title}</h2>
+                <p>${announcement.content}</p>
+            </div>
+        </c:forEach>
     </div>
 </body>
 </html>
-

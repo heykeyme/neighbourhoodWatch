@@ -102,6 +102,19 @@
         .btn-group button:hover {
             background-color: #e60000;
         }
+        
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            background-color: white;
+            color: #333;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
@@ -112,7 +125,7 @@
 
     <div class="container">
         <h2>Create New Announcement</h2>
-        <form>
+        <form action="adminCreateAnnouncement" method="post">
             <!-- Announcement Title Section -->
             <div class="form-group">
                 <label for="announcement-title">Title</label>
@@ -121,16 +134,29 @@
 
             <!-- Announcement Description Section -->
             <div class="form-group">
-                <label for="announcement-description">Description</label>
-                <textarea id="announcement-description" name="announcement-description" placeholder="Write the announcement details here" required></textarea>
+                <label for="announcement-description">Content</label>
+                <textarea id="content-description" name="content-description" placeholder="Write the announcement details here" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="urgency-level">Urgency Level</label>
+                <select id="incident-severity" name="incident-severity">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
             </div>
 
             <!-- Buttons for submitting -->
             <div class="btn-group">
-                <button type="reset">Reset</button>
                 <button type="submit">Post Announcement</button>
             </div>
         </form>
+        
+        <% String message = (String) request.getAttribute("message"); %>
+        <% if (message != null) { %>
+            <p style="color: yellow;"><%= message %></p>
+        <% } %>
     </div>
 </body>
 </html>

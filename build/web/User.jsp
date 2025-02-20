@@ -184,7 +184,7 @@
             <div class="card" id="announcement">
                 <h2>Announcement</h2>
                 <p>View Announcement</p>
-                <a href="userAnnouncement.jsp"><button>View</button></a>
+                <a href="announcementServlet"><button>View</button></a>
             </div>
         </main>
 
