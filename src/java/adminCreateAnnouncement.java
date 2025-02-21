@@ -25,7 +25,7 @@ public class adminCreateAnnouncement extends HttpServlet {
                             : null;
 
         if (adminID == null) {
-            response.sendRedirect("adminLogin.jsp");
+            response.sendRedirect("Admin.jsp");
             return;
         }
 
